@@ -120,7 +120,7 @@ function App() {
                 Mark Attendance
               </button>
             )}
-            <button
+            {/* <button
               className={`px-6 py-3 font-medium text-sm whitespace-nowrap transition-colors border-b-2 ${
                 activeTab === 'my-attendance' 
                   ? 'border-indigo-600 text-indigo-600' 
@@ -129,7 +129,7 @@ function App() {
               onClick={() => setActiveTab('my-attendance')}
             >
               My Attendance
-            </button>
+            </button> */}
             <button
               className={`px-6 py-3 font-medium text-sm whitespace-nowrap transition-colors border-b-2 ${
                 activeTab === 'leaves' 
