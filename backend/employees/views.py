@@ -676,7 +676,7 @@ def accept_invitation(request):
 
 
 @api_view(['GET'])
-@authentication_classes([EmployeeJWTAuthentication])
+@authentication_classes([])
 @permission_classes([IsAuthenticated])
 def invitation_list(request):
     """Get list of all invitations sent by current company"""
@@ -704,7 +704,7 @@ def invitation_list(request):
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class MyAttendanceAPIView(APIView):
-    authentication_classes = [EmployeeJWTAuthentication]
+    authentication_classes = []
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
