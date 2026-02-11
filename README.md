@@ -359,10 +359,9 @@ ALLOWED_HOSTS=localhost,127.0.0.1
 # DATABASE_URL=postgresql://user:password@localhost:5432/hrms_db
 
 # Email Configuration (Required for OTP and Invitations)
-EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USE_TLS=True
+CLOUDINARY_CLOUD_NAME=gdfgddgd
+CLOUDINARY_API_KEY=15174341234357
+CLOUDINARY_API_SECRET=RDGGGDSSERgzDh2qraB1Ijv8L4
 EMAIL_HOST_USER=your-email@gmail.com
 EMAIL_HOST_PASSWORD=your-app-password
 
@@ -603,57 +602,7 @@ For detailed API documentation, see [backend/README.md](backend/README.md)
    - Refreshes attendance list
 ```
 
----
 
-## 📸 Screenshots
-
-### Login Page
-- Company registration
-- Employee login
-- Forgot password
-
-### Admin Dashboard
-- Employee management
-- Attendance marking
-- Company-wide attendance grid
-- Leave approval
-- Invitation management
-
-### Employee Dashboard
-- Personal attendance view
-- Leave request submission
-- Profile management
-
----
-
-## 🚢 Deployment
-
-### Backend Deployment (Heroku/Railway/DigitalOcean)
-
-1. Set environment variables
-2. Configure PostgreSQL database
-3. Set `DEBUG=False`
-4. Configure `ALLOWED_HOSTS`
-5. Collect static files: `python manage.py collectstatic`
-6. Run migrations: `python manage.py migrate`
-7. Use Gunicorn: `gunicorn hrms_lite.wsgi:application`
-
-### Frontend Deployment (Vercel/Netlify)
-
-1. Build: `npm run build`
-2. Set `VITE_API_BASE_URL` to production backend URL
-3. Deploy `dist` folder
-4. Configure redirects for SPA routing
-
-### Environment Variables for Production
-
-**Backend**:
-- `SECRET_KEY`: Strong random key
-- `DEBUG`: False
-- `ALLOWED_HOSTS`: Your domain
-- `DATABASE_URL`: PostgreSQL connection string
-- `CORS_ALLOWED_ORIGINS`: Frontend domain
-- Email settings
 
 **Frontend**:
 - `VITE_API_BASE_URL`: Production backend URL
@@ -746,4 +695,4 @@ For issues and questions:
 
 ---
 
-**Made with ❤️ using Django & React**
+
