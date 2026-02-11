@@ -295,6 +295,8 @@ def reset_password(request):
         return Response({'error': 'Invalid email'}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
+@authentication_classes([EmployeeJWTAuthentication])
+@permission_classes([IsAuthenticated])
 def logout(request):
     from rest_framework_simplejwt.tokens import RefreshToken
     try:
@@ -322,7 +324,7 @@ class IsAuthenticated(permissions.BasePermission):
 
 class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CompanySerializer
-    authentication_classes = []
+    authentication_classes = [EmployeeJWTAuthentication]
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
@@ -330,7 +332,7 @@ class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
 
 class EmployeeViewSet(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
-    authentication_classes = []
+    authentication_classes = [EmployeeJWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -410,7 +412,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 
 class AttendanceViewSet(viewsets.ModelViewSet):
     serializer_class = AttendanceSerializer
-    authentication_classes = []
+    authentication_classes = [EmployeeJWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -481,7 +483,7 @@ class AttendanceViewSet(viewsets.ModelViewSet):
 
 class LeaveViewSet(viewsets.ModelViewSet):
     serializer_class = LeaveSerializer
-    authentication_classes = []
+    authentication_classes = [EmployeeJWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -514,6 +516,7 @@ class LeaveViewSet(viewsets.ModelViewSet):
 
 # Invitation endpoints
 @api_view(['POST'])
+@authentication_classes([EmployeeJWTAuthentication])
 @permission_classes([IsAuthenticated])
 def send_invitation(request):
     """Admin can send invitation to join company"""
@@ -673,6 +676,7 @@ def accept_invitation(request):
 
 
 @api_view(['GET'])
+@authentication_classes([EmployeeJWTAuthentication])
 @permission_classes([IsAuthenticated])
 def invitation_list(request):
     """Get list of all invitations sent by current company"""
@@ -700,7 +704,7 @@ def invitation_list(request):
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class MyAttendanceAPIView(APIView):
-    authentication_classes = []
+    authentication_classes = [EmployeeJWTAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
