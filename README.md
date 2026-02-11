@@ -2,10 +2,17 @@
 
 A modern, full-stack HRMS application for managing employees, attendance, and leave requests with role-based access control.
 
+## 🌐 **LIVE DEMO**
+
+**[🚀 Click here to try the live application](https://hrms-lemon-sigma.vercel.app/)**
+
+---
+
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![React](https://img.shields.io/badge/react-18.2.0-blue.svg)
 ![Django](https://img.shields.io/badge/django-4.x-green.svg)
+![Live Demo](https://img.shields.io/badge/live-demo-brightgreen.svg)
 
 ---
 
