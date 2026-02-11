@@ -296,7 +296,6 @@ def reset_password(request):
 
 @api_view(['POST'])
 @authentication_classes([EmployeeJWTAuthentication])
-@permission_classes([IsAuthenticated])
 def logout(request):
     from rest_framework_simplejwt.tokens import RefreshToken
     try:
@@ -517,7 +516,6 @@ class LeaveViewSet(viewsets.ModelViewSet):
 # Invitation endpoints
 @api_view(['POST'])
 @authentication_classes([EmployeeJWTAuthentication])
-@permission_classes([IsAuthenticated])
 def send_invitation(request):
     """Admin can send invitation to join company"""
     if not request.employee.is_admin:
@@ -677,7 +675,6 @@ def accept_invitation(request):
 
 @api_view(['GET'])
 @authentication_classes([EmployeeJWTAuthentication])
-@permission_classes([IsAuthenticated])
 def invitation_list(request):
     """Get list of all invitations sent by current company"""
     if not request.employee.is_admin:
