@@ -25,6 +25,7 @@
     }
   ],
   "env": {
-    "VITE_API_BASE_URL": "https://hrms-n0bt.onrender.com/api"
+    "VITE_API_BASE_URL": "https://hrms-n0bt.onrender.com/api",
+    "FRONTEND_URL": "https://hrms-lemon-sigma.vercel.app"
   }
 }

@@ -1,5 +1,5 @@
 from rest_framework import viewsets, status, permissions
-from rest_framework.decorators import action, api_view, permission_classes
+from rest_framework.decorators import action, api_view, permission_classes, authentication_classes
 from rest_framework.response import Response
 from django.contrib.auth.hashers import check_password, make_password
 from django.db import IntegrityError
@@ -676,7 +676,7 @@ def accept_invitation(request):
 
 
 @api_view(['GET'])
-@authentication_classes([])
+@authentication_classes([EmployeeJWTAuthentication])
 @permission_classes([IsAuthenticated])
 def invitation_list(request):
     """Get list of all invitations sent by current company"""
