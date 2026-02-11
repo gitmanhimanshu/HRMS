@@ -322,6 +322,7 @@ class IsAuthenticated(permissions.BasePermission):
 
 class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = CompanySerializer
+    authentication_classes = []
     permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
@@ -329,6 +330,7 @@ class CompanyViewSet(viewsets.ReadOnlyModelViewSet):
 
 class EmployeeViewSet(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
+    authentication_classes = []
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -408,6 +410,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 
 class AttendanceViewSet(viewsets.ModelViewSet):
     serializer_class = AttendanceSerializer
+    authentication_classes = []
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -478,6 +481,7 @@ class AttendanceViewSet(viewsets.ModelViewSet):
 
 class LeaveViewSet(viewsets.ModelViewSet):
     serializer_class = LeaveSerializer
+    authentication_classes = []
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
@@ -696,6 +700,7 @@ def invitation_list(request):
         return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class MyAttendanceAPIView(APIView):
+    authentication_classes = []
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
@@ -704,7 +709,7 @@ class MyAttendanceAPIView(APIView):
 
         num_days = monthrange(year, month)[1]
 
-        # 🔹 If Admin → All company employees
+        # If Admin → All company employees
         if request.employee.is_admin:
             employees = Employee.objects.filter(company=request.employee.company)
 
